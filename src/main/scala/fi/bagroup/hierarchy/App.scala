@@ -1,13 +1,15 @@
 package fi.bagroup.hierarchy
 
+import grizzled.slf4j.Logging
+
 /**
  * @author jalavat
  * @since 23.8.2013
  */
-object App {
+object App extends Logging {
 
   def main(args:Array[String]) {
-    println("Hello world")
+    debug("Hello world")
   }
 
 }
