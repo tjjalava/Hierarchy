@@ -1,13 +1,11 @@
-package fi.bagroup.hierarchy.dao
+package fi.bagroup.hierarchy
 
 import scala.slick.session.Session
 
 /**
  * @author tjjalava
- * @since 4.9.2013 
+ * @since 5.9.2013 
  */
-object Dao {
-
+package object dao {
   implicit var session: Session = _
-
 }

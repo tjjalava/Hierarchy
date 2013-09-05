@@ -3,7 +3,6 @@ package fi.bagroup.hierarchy.dao
 import scala.slick.jdbc.{GetResult, StaticQuery => Q}
 import Q.interpolation
 import fi.bagroup.hierarchy.model.Entity
-import Dao.session
 import grizzled.slf4j.Logging
 
 /**

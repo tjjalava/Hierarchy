@@ -1,12 +1,12 @@
 package fi.bagroup.hierarchy.test
 
-import fi.bagroup.hierarchy.dao.{Dao, EntityDao}
+import fi.bagroup.hierarchy.dao.EntityDao
 import scala.slick.session.Database
 import scala.slick.jdbc.{StaticQuery => Q}
 import org.specs2.mutable.Specification
 import fi.bagroup.hierarchy.model.Entity
-import Dao.{session => session}
 import org.specs2.specification.{Step, Fragments}
+import fi.bagroup.hierarchy.dao.session
 
 /**
  * @author tjjalava
