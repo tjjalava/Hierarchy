@@ -7,6 +7,7 @@
     </appender>
 
     <logger name="org.h2" level="TRACE"/>
+    <logger name="scala.slick.compiler" level="WARN"/>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
