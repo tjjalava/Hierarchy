@@ -2,9 +2,11 @@ package fi.bagroup.hierarchy.test
 
 import fi.bagroup.hierarchy.dao._
 import fi.bagroup.hierarchy.dao.EntityDaoLift
+import fi.bagroup.hierarchy.dao.EntityDaoLift.asHierarchy
 import fi.bagroup.hierarchy.model.Entity
 import scala.slick.driver.H2Driver
 import scala.slick.session.Database
+import scala.language.implicitConversions
 
 /**
  * @author tjjalava
@@ -28,6 +30,22 @@ class EntityDaoLiftSpec extends DaoSpec {
     "fetch the same instance from database" >> {
       val entity = entityDao.getEntity(newEntity.id)
       entity === newEntity
+    }
+    "fetch hierarchy as list" in {
+      for (entity <- entityDao.getEntityHierarchy(newEntity.id)) {
+        println(entity)
+      }
+      ok
+    }
+    "fetch hierarchy as hierarchy" in {
+      def p(e:Entity) {
+        val indent = (for (i <- 0 until e.depth) yield "  ").foldLeft("")(_ + _)
+        println(indent + e.name)
+        e.getChildren.foreach(p)
+      }
+
+      entityDao.getEntityHierarchy(newEntity.id).asHierarchy.foreach(p)
+      ok
     }
   }
 
